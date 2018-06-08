@@ -1,0 +1,22 @@
+
+@import "banner.scss";
+@import "carousele.scss";
+
+
+body {margin: 0;}
+
+.container-content {
+    margin-left: 20.222%;
+    margin-right: 20.222%;
+    padding: 2.222%;
+}
+
+.h-carousel-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  width: 66%;
+  left: -3%;
+}
