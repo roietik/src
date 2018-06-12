@@ -1,22 +1,284 @@
 
+@import "grid.scss";
+@import "reset.scss";
 @import "banner.scss";
 @import "carousele.scss";
+@import "slicknav.scss";
 
 
-body {margin: 0;}
+$phone: #{"only screen and (min-width: 768px)"};
+$tablet: #{"only screen and (min-width: 992px)"};
+$desktop: #{"only screen and (min-width: 1200px)"};
+
+$main-color: #270000;
+$txt-color: #fff;
+$hover-color: #cebd9c;
+$article-color: #5d181c;
+$copyright-color: #877f6b;
+
+p {
+  color: $article-color;
+  font-size: 10px;
+}
+.single-col {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+// grid nadpisany
+$columns: 12;
+$column-width: 65;
+$gutter-width: 30;
+$total-width: 100%;
+
+// Wyrownanie, pozycjowanie
+.sep {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.center-text {
+  text-align: center;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.center-no-float {
+  @extend .float-none;
+  @extend .center-text;
+}
+
+.no-center-float {
+  @extend .float-left;
+  text-align: initial;
+}
+
+// wyrowanie w pionie
+.center-vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+.inline-block {
+  display: inline-block;
+} 
+
+
+// rozmiary
+.absolute-one-hundred-size {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+// Listy
+.list-style-none {
+  list-style-type: none;
+}
+
+// Ramki
+@mixin section-border-top($border-color: $txt-color){
+  border-top-width: 0px;
+  border-top-style: solid;
+  border-top-color: $main-color;
+}
+
+@mixin section-border-bottom($border-color: $txt-color){
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  border-bottom-color: $main-color;
+}
+
+// Elementy plywajace
+.overflow-fix  {
+  overflow: auto;
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// ukrywanie
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+
+
+.avangers-history .single-col {
+  @include column(12);
+  @media #{$tablet} {
+    @include column(6);
+  }
+}
+.avangers-history2 .single-col {
+  @include column(12);
+  @media #{$tablet} {
+    @include column(3);
+  }
+}
+
+.avangers-history3 .single-col {
+  @include column(12);
+  @media #{$tablet} {
+    @include column(12);
+  }
+}
+
+.footer-main .single-col {
+  @include column(12);
+  @media #{$phone} {
+    @include column(6);
+  }
+  @media #{$tablet} {
+    @include column(3);
+  }
+}
 
 .container-content {
     margin-left: 20.222%;
     margin-right: 20.222%;
-    padding: 2.222%;
+    // padding: 2.222%;
 }
 
-.h-carousel-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  margin: 0 auto;
-  width: 66%;
-  left: -3%;
+/***  Naglowek ***/
+header {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $article-color;
+  background: $main-color;
+  border-bottom: 1px solid $main-color;
+  box-shadow: 0 0 1px $main-color;
+  .navbar {
+    height: 63px;
+      .nav-logo {
+      @extend .float-left;
+      @extend .center-vertical;
+      z-index: 2;
+    }
+  }
 }
+
+.logo {
+  padding-top: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  display: block;
+}
+
+// ukrywa menu glowne
+#main-menu {
+  display: none;
+  @media #{$phone} {
+    display: block;
+  }
+}
+
+.main-menu-content {
+  @extend .float-right;
+  @extend .center-vertical;
+  ul {
+    @extend .list-style-none;
+    li {
+      @extend .float-left;
+      display: block;
+      a {
+        color: $txt-color;
+        font-size: 15px;
+        font-family: $txt-color;
+        font-weight: 400;
+        padding: 20px 14px;
+        line-height: 20px;
+        &:hover {
+          color: $hover-color;
+        }
+        @media #{$tablet} {
+          padding: 20px 22px;
+        }
+      }
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// menu mobilne
+.slicknav_menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  @media #{$phone} {
+    display: none;
+  }
+  i {
+    display: none;
+  }
+  ul {
+    @include section-border-bottom;
+    box-shadow: 0 0 1px $txt-color;
+  }
+}
+
+.avangers-history {
+  color: #000;
+}
+
+// Stopka
+// stopka - ogolne
+footer {
+  background-color: $main-color;
+  color: #fff;
+  ul {
+    list-style: none;
+  }
+  p {
+    color: #fff;
+  }
+}
+
+  .copyright {
+    background-color: $copyright-color;
+    div {
+      p {
+        text-align: center;
+        color: #fff;
+        a {
+        &:visited {color:#fff;}
+        &:hover{color:$main-color;}
+        }
+      }
+    }
+  }
+
+
+
+
+
+
