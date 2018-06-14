@@ -16,6 +16,10 @@ $hover-color: #cebd9c;
 $article-color: #5d181c;
 $copyright-color: #877f6b;
 
+$basic-font-size: 12px;
+
+$basic-line-height: 1.6;
+
 p {
   color: $article-color;
   font-size: 10px;
@@ -30,6 +34,7 @@ $columns: 12;
 $column-width: 65;
 $gutter-width: 30;
 $total-width: 100%;
+
 
 // Wyrownanie, pozycjowanie
 .sep {
@@ -51,6 +56,10 @@ $total-width: 100%;
 .float-none {
   float: none;
 }
+.inline-block {
+  display: inline-block;
+
+} 
 
 .center-no-float {
   @extend .float-none;
@@ -68,12 +77,6 @@ $total-width: 100%;
   top: 50%;
   transform: translateY(-50%);
 }
-
-
-
-.inline-block {
-  display: inline-block;
-} 
 
 
 // rozmiary
@@ -126,6 +129,55 @@ $total-width: 100%;
   opacity: 1;
 }
 
+// rozmiary
+.absolute-one-hundred-size {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.basic-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+@mixin header-mixin($font-size, $margin-bottom, $color){
+  font-size: $font-size;
+  margin-bottom: $margin-bottom;
+  color: $color;
+}
+
+// mixin dla przyciskow
+@mixin basic-button($color,$background-color){
+  color: $color;
+  background-color: $background-color;
+  text-decoration: none;
+  @extend .inline-block;
+  font-size: $basic-font-size;
+  font-weight: 400;
+  line-height: $basic-line-height;
+  text-transform: uppercase;
+}
+
+.dark-overlay {
+  content: "";
+  z-index: 0;
+  @extend .absolute-one-hundred-size;
+  background: none repeat 0 0 rgba(30, 30, 30, 0.5);
+}
+
+#movie {
+  @include size(100%,100%);
+  &:after {
+    @extend .dark-overlay;
+  }
+} 
 
 
 .avangers-history .single-col {
@@ -217,6 +269,7 @@ header {
         line-height: 20px;
         &:hover {
           color: $hover-color;
+          @extend .basic-transition;
         }
         @media #{$tablet} {
           padding: 20px 22px;
@@ -250,6 +303,37 @@ header {
   color: #000;
 }
 
+// sekcja video
+.section-video {
+  display: none;
+  position: relative;
+  .container {
+    padding: 175px 0;
+    z-index: 2;
+  }
+  @media #{$desktop} {
+    display: block;
+  }
+}
+
+.video-line {
+  @extend .center-text;
+  h2 {
+    @include header-mixin(28px,26px,$main-color);
+    position: relative;
+  }
+  a {
+    position: relative;
+    @include basic-button($main-color,$txt-color);
+    margin: 8px 0;
+    padding: 12px 30px;
+    @extend .basic-transition;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 // Stopka
 // stopka - ogolne
 footer {
@@ -263,10 +347,11 @@ footer {
   }
   .single-col {
     h3 {
-      text-align: center;
+      @extend .center-text;
     }
+
     .fas, .far {
-      text-align: center;
+      @extend .center-text;
       font-size: 36px;
       width: 36px;
       border: 1px solid $txt-color;
@@ -280,6 +365,7 @@ footer {
       &:hover{
         color: $main-color;
         background-color: $txt-color;
+        @extend .basic-transition;
       }
     }
   }
@@ -289,11 +375,12 @@ footer {
     background-color: $copyright-color;
     div {
       p {
-        text-align: center;
+        @extend .center-text;
         color: $txt-color;
         a {
         &:visited {color:$txt-color;}
         &:hover{color:$main-color;}
+        @extend .basic-transition;
         }
       }
     }

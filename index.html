@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="css/main.css"/>
- <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
-  <!-- Add the slick-theme.css if you want default styling -->
-  <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
-  <!-- font awesome icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<!-- main css compresion from sass -->
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<!-- slider css -->
+<link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
+<!-- font awesome icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <title>Avangers</title>
 </head>
   <body>
@@ -167,7 +168,7 @@
     </div>
     </section>
     <div class="" style="clear:both;"></div>
-            <section>
+    <section>
     <!-- Sekcja nasze uslugi -->
     <div class="avangers-history2">
       <div class="container container-content">
@@ -196,8 +197,20 @@
     </section>
     <div class="" style="clear:both;"></div>
     <div class="" style="margin-top: 15px;"></div>
-    <section>
-    <!-- Stopka -->
+    <!-- Sekcja video -->
+    <div class="section-video container-content">
+      <div id="movie" style="position:absolute;">
+      </div>
+      <div class="video-line">
+        <div class="container" data-animate="bounceIn"> 
+          <h2>Najnowsza produkcja: Wojna bez granic</h2>
+          <a href="#" class="button">Zobacz zwiastun</a>
+        </div>
+      </div>
+      <div class="player" data-property="{videoURL:'RKs_Z5K7Sys',containment:'#movie',showControls:false,startAt:0,mute:true,autoPlay:true,loop:true,opacity:1}">
+      </div>
+    </div>
+    <!-- Footer -->
     <footer class="sep">
       <div class="footer-main">
         <div class="container">
@@ -229,15 +242,21 @@
       </div>
       <div class="" style="clear:both;"></div>
     </footer>
-          <!-- copyright -->
-      <div class="copyright sep">
-        <div class="container container-content">
-          <p>Copyright 2018 © <a href="">Avangers.pl</a></p>
-        </div>
+    <!-- copyright -->
+    <div class="copyright sep">
+      <div class="container container-content">
+        <p>Copyright 2018 © <a href="">Avangers.pl</a></p>
       </div>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    </div>
+    <!-- jQuery lib -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- ytPlayer -->
+    <script type="js/jquery.mb.YTPlayer.js"></script>
+    <!-- nav -->
     <script src="js/jquery.slicknav.js"></script>
+    <!-- slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script> 
+    <!-- slider customization -->
     <script type="text/javascript">
       jQuery(document).ready(function($) {
         // slider
@@ -254,16 +273,11 @@
           arrows: false,
           buttons: false
         });
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        // menu mobilne
         $('#main-menu').slicknav({
           prependTo: '#attach-mobile-menu',
           label: ''
         });
-
+        $('.player').YTPlayer();
       });
     </script>
   </body>
