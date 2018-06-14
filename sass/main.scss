@@ -254,12 +254,34 @@ header {
 // stopka - ogolne
 footer {
   background-color: $main-color;
-  color: #fff;
+  color: $txt-color;
   ul {
     list-style: none;
   }
   p {
-    color: #fff;
+    color: $txt-color;
+  }
+  .single-col {
+    h3 {
+      text-align: center;
+    }
+    .fas, .far {
+      text-align: center;
+      font-size: 36px;
+      width: 36px;
+      border: 1px solid $txt-color;
+      color: $txt-color;
+      border-radius: 50%;
+      padding: 12px;
+      margin: 0 auto;
+        margin-bottom: 8px;
+      position: relative;
+      display: inherit;
+      &:hover{
+        color: $main-color;
+        background-color: $txt-color;
+      }
+    }
   }
 }
 
@@ -268,9 +290,9 @@ footer {
     div {
       p {
         text-align: center;
-        color: #fff;
+        color: $txt-color;
         a {
-        &:visited {color:#fff;}
+        &:visited {color:$txt-color;}
         &:hover{color:$main-color;}
         }
       }

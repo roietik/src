@@ -1,4 +1,5 @@
 $main-color: #270000;
+$f: #fff;
 
 .h-carousel-container {
   display: flex;
@@ -6,31 +7,31 @@ $main-color: #270000;
   margin: 0 auto;
   width: 66%;
   left: -3%;
-}
-.h-carousel-title {
-  float: left;
-  width: 20%;
-  background: $main-color;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  color: #fff;
-} 
-.h-carousel-slides {
-  background: $main-color;
-  width: 80%;
-  float: right;
-}
 
-.inner {width:100%;height:100%;padding: 0 4%;-webkit-box-sizing: border-box;box-sizing: border-box;}
-.inner > img {width: 100%;}
-.scaling-txt {font-size: calc(1vw + .5vh + .5vmin);}
+  .h-carousel-title {
+    float: left;
+    width: 20%;
+    background: $main-color;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: $f;
+  }
+  .shape-clip {
+    /*Chrome,Safari*/
+    -webkit-clip-path: polygon(45px 143px,383px 249px,400px -1px,0px 0px);
+    /*Firefox*/
+    clip-path: url("#clipPolygon");
+  }
 
-.shape-clip {
-/*Chrome,Safari*/
--webkit-clip-path: polygon(45px 143px,383px 249px,400px -1px,0px 0px);
-/*Firefox*/
-clip-path: url("#clipPolygon");
+  .h-carousel-slides {
+    background: $main-color;
+    width: 80%;
+    float: right;
+  } 
+  .inner {width:100%;height:100%;padding: 0 4%;-webkit-box-sizing: border-box;box-sizing: border-box;}
+  .inner > img {width: 100%;}
+  .scaling-txt {font-size: calc(1vw + .5vh + .5vmin);}
 }
