@@ -56,17 +56,17 @@ var getYTPVideoID = function (url) {
     version: "3.2.2",
     build  : "7122",
     author : "Matteo Bicocchi (pupunzi)",
-    apiKey : "",
+    apiKey : "AIzaSyDgf8C9v9e1bBHSjEqd7uAChoguJjDhbXw",
 
     /*
      * Default options for the player
      */
     defaults        : {
-      /**
+      /**clear
        videoURL (string)
        the complete Youtube video URL or the short url or the videoID
        */
-      videoURL: null,
+      videoURL: 'RKs_Z5K7Sys',
 
       /**
        containment (string)
