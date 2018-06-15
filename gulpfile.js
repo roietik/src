@@ -4,6 +4,7 @@ var gulp = require("gulp"),
 	plumber = require("gulp-plumber"), 
 	browserSync = require("browser-sync"),
 	uglifycss = require('gulp-uglifycss');
+	imagemin = require('gulp-imagemin');
 
 
 gulp.task("test", function() {console.log("Gulp.js sprawny!");});
@@ -23,6 +24,12 @@ gulp.task("css", function() {
 		.pipe(gulp.dest("css"))
 		.pipe(browserSync.stream());
 
+});
+
+gulp.task('imagemin', function() {
+    gulp.src('img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('img/compressed'))
 });
 
 gulp.task("server", function() {
